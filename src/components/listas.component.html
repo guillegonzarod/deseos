@@ -1,0 +1,47 @@
+<!--
+Paso 14.3: Copiamos el código de la '<ion-list>' del archivo 'pendientes.component.html' y
+lo pegamos aquí:
+-->
+<ion-list>
+  <!--
+  Paso 14.8: Añadimos el input 'terminada' al pipe 'FiltroCompletado':
+  -->
+  <!--
+  Paso 15.6: Añadimos la referencia local '#slidingItem' y luego la pasamos como
+  parámetro a la función 'editarLista()' para que se cierre de forma automática
+  una vez lanzada la alerta:
+  -->
+  <!--
+  Paso 15.7: Vamos al archivo listas.component.ts
+  -->
+<ion-item-sliding #slidingItem *ngFor="let lista of _deseosService.listas | FiltroCompletado: terminada">
+  <!--
+  Paso 14.9: Vamos al archivo terminados.component.html
+  -->
+<!--
+Paso 15.5: Pegamos el contenido del elemento '<ion-item-options>' y lo editamos para
+que funcione como botón de edición del nombre de la lista:
+-->
+  <ion-item-options side="left">
+    <button (click)="editarLista(lista, slidingItem)" ion-button icon-only color="info">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-item-options>
+  <button ion-item (click)="listaSeleccionada(lista)">
+    {{ lista.titulo }}
+  <ion-note item-end>{{ lista.items.length }} items</ion-note>
+</button>
+<!--
+Paso 15.4: Cambiamos a la derecha la ubicación del botón de borrar. Luego copiamos el
+contenido del elemento '<ion-item-options>':
+-->
+<ion-item-options side="right">
+  <button (click)="borrarLista(lista)" ion-button icon-only color="danger">
+    <ion-icon name="close"></ion-icon>
+  </button>
+</ion-item-options>
+</ion-item-sliding>
+</ion-list>
+<!--
+Paso 14.4: Vamos al archivo pendientes.component.html
+-->

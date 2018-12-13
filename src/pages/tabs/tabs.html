@@ -1,5 +1,16 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+<!--
+Paso 2.5: Cambiamos los valores de los atributos 'tabTitle' por 'Pendientes' y 'Terminados'
+-->
+<!--
+Paso 7.5: Le asignamos el valor 'primary' al atributo 'color':
+-->
+<ion-tabs color="primary">
+  <!--
+  Paso 7.6: Vamos al archivo 'src/theme/variables.scss'
+  -->
+  <ion-tab [root]="tab1Root" tabTitle="Pendientes" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Terminados" tabIcon="information-circle"></ion-tab>
 </ion-tabs>
+<!--
+Paso 2.6: Vamos al archivo src/pages/tabs/tabs.ts
+-->

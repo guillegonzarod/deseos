@@ -1,0 +1,95 @@
+<!--
+Paso 2.4: Añadimos el esqueleto de etiquetas del componente:
+-->
+<ion-header>
+  <!--
+  Paso 7.4: Le asignamos el valor 'primary' al atributo 'color':
+-->
+<ion-navbar color="primary">
+  <!--
+  Paso 7.5: Vamos al archivo tabs.html
+-->
+<ion-title>Pendientes</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--
+  Paso 7.7: Colocamos la imagen de la lista de pendientes en la parte superior de la pantalla:
+-->
+<img src="../../assets/imgs/pendientes.jpg">
+<!--
+Paso 7.8: Vamos al archivo terminados.component.html
+
+<h2>Hola Pendientes</h2>
+
+Paso 7.1: Pegamos el código html de la 'Basic List':
+
+<ion-list>
+
+  Paso 7.2: Recorremos la propiedad '_deseosService.listas' para mostrar las listas
+  y cambiamos el nombre del evento click por el de 'listaSeleccionada(lista)'
+
+Paso 12.8: Añadimos el botón cuando se hace 'slide' sobre un item de la lista, cambiamos
+el '*ngFor' para el elemento '<ion-item-sliding>' y le añadimos el evento click al botón:
+
+Paso 13.3: Le aplicamos el pipe impuro 'FiltroCompletado' con el parámetro 'false' al
+array de listas:
+
+<ion-item-sliding *ngFor="let lista of _deseosService.listas | FiltroCompletado: false">
+
+  Paso 13.4: Vamos al archivo terminados.component.html
+
+  <button ion-item (click)="listaSeleccionada(lista)">
+    {{ lista.titulo }}
+
+    Paso 12.7: Añadimos una 'nota' con el tamaño de la lista al final del elemento:
+
+  <ion-note item-end>{{ lista.items.length }} items</ion-note>
+</button>
+<ion-item-options side="left">
+  <button (click)="borrarLista(lista)" ion-button icon-only color="danger">
+
+    Paso 12.9: Vamos al archivo deseos.service.ts
+
+    <ion-icon name="close"></ion-icon>
+  </button>
+</ion-item-options>
+</ion-item-sliding>
+</ion-list>
+
+
+Paso 8.6: Vamos a la URL 'https://ionicframework.com/docs/api/components/fab/FabButton/', copiamos el
+código html de la 'FabButton' y lo pegamos aquí:
+-->
+<!--
+Paso 14.4: Añadimos el componente 'app-listas':
+-->
+<app-listas></app-listas>
+<!--
+Paso 14.5: Vamos al archivo listas.component.ts
+-->
+<!--
+Paso 8.7: Le añadimos las propiedades de layout al <ion-fab>:
+-->
+<ion-fab bottom right>
+  <!--
+  Paso 8.9: Añadimos el evento '(click)' al botón para que nos dirija al componente 'Agregar':
+-->
+<button (click)="agregarLista()" ion-fab>
+  <!--
+  Paso 8.10: Vamos al archivo pendientes.component.ts
+-->
+<!--
+Paso 8.8: Cambiamos el texto ('Button') del botón por un icono de añadir (name="add"):
+-->
+<ion-icon name="add"></ion-icon>
+</button>
+</ion-fab>
+</ion-content>
+<!--
+Paso 7.3: Vamos al archivo pendientes.component.ts
+-->
+<!--
+Paso 2.5: Vamos al archivo src/pages/tabs/tabs.html
+-->

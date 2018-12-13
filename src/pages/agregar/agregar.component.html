@@ -1,0 +1,103 @@
+<!--
+Paso 8.1: Copiamos el esqueleto básico de un componente de ionic del 'pendientes.component.html'
+y lo pegamos:
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <!--
+    Paso 9.6: Añadimos el 'lista.titulo' como título del componente:
+  -->
+  <ion-title>{{ this.lista.titulo }}</ion-title>
+  <!--
+  Paso 10.1: Vamos al archivo agregar.component.ts
+  -->
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--
+  Paso 8.13: Vamos a la URL 'https://ionicframework.com/docs/components/#inputs', copiamos el
+  código html de la 'Floating Label' y lo pegamos aquí:
+-->
+<ion-list>
+  <!--
+  Paso 8.14: Añadimos un encabezado '<ion-list-header>' a la lista:
+-->
+<ion-list-header>
+  Tareas por hacer
+</ion-list-header>
+<ion-item>
+  <ion-label floating>Nuevo item</ion-label>
+  <!--
+  Paso 10.2: Añadimos un '[(ngModel)]' para asignarle a la propiedad 'nombreItem' el valor
+  de la entrada de usuario. Además le añadimos el evento 'keyup.enter' para que agregue el
+  item cuando se pulse la tecla 'intro':
+-->
+  <ion-input [(ngModel)]="nombreItem" type="text" (keyup.enter)="agregarItem()"></ion-input>
+<!--
+Paso 10.3: Vamos al archivo agregar.component.ts
+-->
+</ion-item>
+</ion-list>
+<!--
+Paso 8.15: Añadimos otra lista de ejemplo para añadir tareas por hacer, pero le quitamos la
+flechita de la derecha (detail-none):
+-->
+<!--
+Paso 10.7: Añadimos un '*ngIf' para mostrar un 'título' en caso de que haya tareas por hacer:
+-->
+<ion-list *ngIf="lista.items.length > 0">
+<ion-list-header>Tareas por hacer</ion-list-header>
+  <!--
+  Paso 10.4: Añadimos un '*ngFor' para ir recorriendo los items de la lista. Además
+  Angular comprueba automáticamente cualquier cambio (adición de items) en el array y lo
+  muestra
+  -->
+  <!--
+  Paso 10.5: Añadimos una animación a la adición de items a la lista. Luego, mediante
+  un '*ngIf' mostramos o no el icono de tarea completada (checkbox-outline). Y por
+  último, le asignamos al evento 'click' el método 'actualizarTarea(item)':
+  -->
+  <!--
+  Paso 10.6: Vamos al archivo agregar.component.ts
+  -->
+  <!--
+  Paso 10.8: Añadimos el botón cuando se hace 'slide' sobre un item de la lista
+  Ver 'Sliding List'. Es necesario cambiar el '*ngFor' y la animación al elemento
+  '<ion-item-sliding>':
+  -->
+  <ion-item-sliding *ngFor="let item of this.lista.items; let indiceItem = index" class="animated fadeInDown">
+    <button ion-item detail-none
+    (click) = "actualizarTarea(item)">
+      <ion-icon *ngIf="item.completado" name="checkbox-outline" item-start></ion-icon>
+      <ion-icon *ngIf="!item.completado" name="square-outline" item-start></ion-icon>
+      {{ this.item.descripcion }}
+    </button>
+    <ion-item-options side="right">
+      <!--
+      Paso 10.9: Añadimos el evento click al botón del item al hacer 'slide' y le pasamos
+      como parámetro la posición del item dentro del array:
+      -->
+      <button ion-button icon-only color="danger"
+      (click)="borrar(indiceItem)">
+        <!--
+        Paso 10.10: Vamos al archivo agregar.component.ts
+        -->
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+
+</ion-list>
+<!--
+Paso 9: Vamos a la URL 'https://ionicframework.com/docs/components/#alert', copiamos el
+código html de la 'Prompt Alert'
+-->
+<!--
+Paso 9.1: Vamos al archivo pendientes.component.ts
+-->
+</ion-content>
+<!--
+Paso 8.2: Vamos al archivo agregar.component.ts
+-->

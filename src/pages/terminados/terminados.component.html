@@ -1,0 +1,55 @@
+<!--
+Paso 2.10: Añadimos el esqueleto de etiquetas del componente:
+-->
+<ion-header>
+  <!--
+  Paso 7.10: Le asignamos el valor 'primary' al atributo 'color':
+-->
+<!--
+Paso 7.11: Vamos al archivo terminados.component.ts
+-->
+<ion-navbar color = "primary">
+  <ion-title>Terminados</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--
+  Paso 7.8: Colocamos la imagen de la lista de terminados en la parte superior de la pantalla:
+-->
+<img src="../../assets/imgs/completados.jpg">
+<!--
+Paso 7.9: Copiamos la lista de pendientes.component.html y la pegamos aquí:
+
+<ion-list>
+
+Paso 13.4: Le aplicamos el pipe impuro 'FiltroCompletado' con el parámetro 'true' al
+array de listas:
+
+<button ion-item *ngFor="let lista of _deseosService.listas | FiltroCompletado:true" (click)="listaSeleccionada(lista)">
+{{ lista.titulo }}
+</button>
+
+Paso 14: Creamos el directorio 'src/components' y luego los archivos
+'src/components/listas.component.html' y 'src/components/listas.component.ts':
+
+Paso 14.1: Vamos al archivo listas.component.ts
+</ion-list>
+-->
+<!--
+Paso 14.6: Añadimos el componente 'app-listas':
+-->
+<!--
+Paso 14.9: Le pasamos el input 'terminada' al componente 'app-listas':
+-->
+<app-listas [terminada]="true"></app-listas>
+<!--
+Paso 15.1: Vamos al archivo listas.component.ts
+-->
+<!--
+Paso 14.7: Vamos al archivo listas.component.ts
+-->
+</ion-content>
+<!--
+Paso 2.11: Vamos al archivo src/pages/tabs/tabs.ts
+-->
